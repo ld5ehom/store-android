@@ -19,5 +19,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "sns-android"
+rootProject.name = "store-android"
 include(":app")
+include(":domain")
+include(":presentation")
+include(":data")

@@ -10,11 +10,11 @@ plugins {
 }
 
 android {
-    namespace = "com.ld5ehom.sns_android"
+    namespace = "com.ld5ehom.store_android"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.ld5ehom.sns_android"
+        applicationId = "com.ld5ehom.store_android"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -59,6 +59,10 @@ android {
 }
 
 dependencies {
+
+    implementation((project(":domain")))
+    implementation((project(":data")))
+    implementation((project(":presentation")))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
