@@ -5,16 +5,16 @@ plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
-    id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")  // kapt
+    alias(libs.plugins.hilt) // Hilt
 }
 
 android {
-    namespace = "com.ld5ehom.store_android"
+    namespace = "com.ld5ehom.sns_android"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.ld5ehom.store_android"
+        applicationId = "com.ld5ehom.sns_android"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -60,9 +60,9 @@ android {
 
 dependencies {
 
-    implementation((project(":domain")))
-    implementation((project(":data")))
-    implementation((project(":presentation")))
+    implementation(project(":domain"))
+    implementation(project(":data"))
+    implementation(project(":presentation"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
@@ -88,7 +88,8 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.okhttp)
 
-    implementation("com.google.dagger:hilt-android:2.48.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
+    // Hilt
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
 
 }

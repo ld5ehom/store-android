@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.hilt)
+    id("kotlin-kapt")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -41,5 +44,21 @@ dependencies {
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-    implementation((project(":domain")))
+    // domain
+    implementation(project(":domain"))
+
+    // serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    // retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.serialization)
+    implementation(libs.okhttp)
+
+    // hilt
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+
+    // datastore
+    implementation(libs.datastore)
 }
